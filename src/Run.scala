@@ -5,7 +5,7 @@ object Run extends App {
   var contractSumAmount = Map[String, Int]()
   var contractSumValue = Map[String, Double]()
   for (file <- dateList) {
-    val csvFile = new CSVProcessor(file, contractSumAmount, contractSumValue)
+    val csvFile = new CSVProcessor("http://data.europa.eu/euodp/repository/ec/dg-grow/mapps/" + file, contractSumAmount, contractSumValue)
     val dataTuple = csvFile.process()
     contractSumAmount = dataTuple._1
     contractSumValue = dataTuple._2

@@ -3,7 +3,7 @@ class CSVProcessor(csvFile: String, isoMap: Map[String, Int], valueMap: Map[Stri
   def process() : (Map[String, Int], Map[String, Double]) = {
     import io.Source
     import java.util.Locale
-    val source = Source.fromFile(csvFile)
+    val source = Source.fromURL(csvFile)
     val head = source.getLines().next().split(",(?!(?=[^\"]*\"[^\"]*(?:\"[^\"]*\"[^\"]*)*$))")
     val isoID = head.indexOf("\"ISO_COUNTRY_CODE\"")
     val valueID = head.indexOf("\"VALUE_EURO_FIN_1\"")
